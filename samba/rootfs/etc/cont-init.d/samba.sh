@@ -32,12 +32,11 @@ bashio::log.info "Interfaces: $(printf '%s ' "${interfaces[@]}")"
 # Generate the root share
 SAMBA_ROOT_SHARE=/usr/share/ha-samba/root
 mkdir -pv "${SAMBA_ROOT_SHARE}"
-ln -vf /addons "${SAMBA_ROOT_SHARE}/addons"
-ln -vf /backup "${SAMBA_ROOT_SHARE}/backup"
-ln -vf /config "${SAMBA_ROOT_SHARE}/config"
-ln -vf /media  "${SAMBA_ROOT_SHARE}/media"
-ln -vf /share  "${SAMBA_ROOT_SHARE}/share"
-ln -vf /ssl    "${SAMBA_ROOT_SHARE}/ssl"
+for SHAREDIR in addons backup config media share ssl; do
+	echo "Linking ${SHAREDIR}"
+	ln -vf "/${SHAREDIR}" "${SAMBA_ROOT_SHARE}/${SHAREDIR}"
+done
+echo "Linked all of the share directories"
 
 # Generate Samba configuration.
 jq ".interfaces = $(jq -c -n '$ARGS.positional' --args -- "${interfaces[@]}")" /data/options.json \
