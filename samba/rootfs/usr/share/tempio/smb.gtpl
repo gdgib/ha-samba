@@ -23,6 +23,8 @@
    mangled names = no
    dos charset = CP850
    unix charset = UTF-8
+   
+   allow insecure wide links = yes
 
 [config]
    browseable = yes
@@ -100,3 +102,6 @@
    force group = root
    veto files = /{{ .veto_files | join "/" }}/
    delete veto files = {{ eq (len .veto_files) 0 | ternary "no" "yes" }}
+
+   follow symlinks = yes
+   wide links = yes
