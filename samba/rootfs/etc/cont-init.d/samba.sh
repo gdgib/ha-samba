@@ -34,7 +34,7 @@ SAMBA_ROOT_SHARE=/usr/share/ha-samba/root
 mkdir -pv "${SAMBA_ROOT_SHARE}"
 for SHAREDIR in addons backup config media share ssl; do
 	echo "Linking ${SHAREDIR}"
-	ln -vf "/${SHAREDIR}" "${SAMBA_ROOT_SHARE}/${SHAREDIR}"
+	ln -svf "/${SHAREDIR}" "${SAMBA_ROOT_SHARE}/${SHAREDIR}"
 done
 echo "Linked all of the share directories"
 
