@@ -1,5 +1,11 @@
 # Changelog
 
+## 10.0.1
+
+Create a root share which contains all the other shares.  This way you
+can mount all of the exported directories under a single drive letter if
+desired. 
+
 ## 10.0.0
 
 BREAKING CHANGE: Don't mangle filenames

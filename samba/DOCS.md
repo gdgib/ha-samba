@@ -28,6 +28,7 @@ Directory | Description
 `backup` | This is for your backups.
 `config` | This is for your Home Assistant configuration.
 `media` | This is for local media files.
+`root` | This contains subdirectories for all the other shares listed in this table.
 `share` | This is for your data that is shared between add-ons and Home Assistant.
 `ssl` | This is for your SSL certificates.
 
